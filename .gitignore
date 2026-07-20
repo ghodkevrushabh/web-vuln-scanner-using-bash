@@ -1,6 +1,11 @@
 # Scan reports (generated at runtime, shouldn't be committed)
 vuln_report_*.txt
-
+ 
+# ...except the curated sample report(s) kept for the README demo
+!sample-reports/
+!sample-reports/*.txt
+ 
 # OS / editor junk
 .DS_Store
 *.swp
+ 

@@ -1,0 +1,61 @@
+==============================================================
+ Web Vulnerability Assessment Report
+ Target      : scanme.nmap.org
+ Date        : Mon Jul 20 10:18:49 AM EDT 2026
+==============================================================
+
+[0;36m[1] DNS & Reachability Check[0m
+[[0;32mPASS[0m] Resolved scanme.nmap.org -> 2600:3c01::f03c:91ff:fe18:bb2f
+[[1;33mWARN[0m] HTTPS unreachable, will still attempt further checks
+
+[0;36m[2] Common Port Scan[0m
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-07-20 10:18 -0400
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.34s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+
+PORT     STATE  SERVICE
+21/tcp   closed ftp
+22/tcp   open   ssh
+23/tcp   closed telnet
+25/tcp   closed smtp
+80/tcp   open   http
+443/tcp  closed https
+3306/tcp closed mysql
+8080/tcp closed http-proxy
+8443/tcp closed https-alt
+
+Nmap done: 1 IP address (1 host up) scanned in 7.39 seconds
+
+[0;36m[3] HTTP Security Header Audit[0m
+[[0;31mFAIL[0m] Strict-Transport-Security header MISSING
+[[0;31mFAIL[0m] Content-Security-Policy header MISSING
+[[0;31mFAIL[0m] X-Frame-Options header MISSING
+[[0;31mFAIL[0m] X-Content-Type-Options header MISSING
+[[0;31mFAIL[0m] Referrer-Policy header MISSING
+[[0;31mFAIL[0m] Permissions-Policy header MISSING
+[[0;32mPASS[0m] No Server banner disclosed
+[[0;32mPASS[0m] No X-Powered-By disclosure
+
+[0;36m[4] SSL/TLS Configuration Audit[0m
+[[1;33mWARN[0m] Could not retrieve certificate expiry
+[[0;32mPASS[0m] No SSLv2/SSLv3/TLS1.0/TLS1.1 detected as supported (if none flagged above)
+
+[0;36m[5] Sensitive File & Directory Exposure Check[0m
+[[0;32mPASS[0m] /robots.txt not accessible (HTTP 000)
+[[0;32mPASS[0m] /.git/config not accessible (HTTP 000)
+[[0;32mPASS[0m] /.env not accessible (HTTP 000)
+[[0;32mPASS[0m] /admin not accessible (HTTP 000)
+[[0;32mPASS[0m] /backup.zip not accessible (HTTP 000)
+[[0;32mPASS[0m] /config.php.bak not accessible (HTTP 000)
+[[0;32mPASS[0m] /wp-config.php not accessible (HTTP 000)
+[[0;32mPASS[0m] /.htaccess not accessible (HTTP 000)
+[[0;32mPASS[0m] /phpinfo.php not accessible (HTTP 000)
+
+[0;36m==================== SUMMARY ====================[0m
+Passed checks : 13
+Warnings      : 2
+Failed checks : 6
+==================================================
+
+Full report saved to: vuln_report_scanme.nmap.org_20260720_101849.txt
