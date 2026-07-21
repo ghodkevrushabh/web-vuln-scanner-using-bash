@@ -1,5 +1,3 @@
-
-Readme · MD
 # Web Vulnerability Assessment Tool
  
 A lightweight Bash tool that performs a **passive, non-intrusive security audit** of a target website — checking HTTP security headers, SSL/TLS configuration, exposed sensitive files/directories, open ports, and server fingerprinting.
