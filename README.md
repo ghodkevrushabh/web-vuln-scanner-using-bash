@@ -74,4 +74,4 @@ This tool is intended **for educational purposes and authorized security testing
 
   
 ## Author
-Vrushabh Rajkumar Ghodke — PGCP-ITISS, IACSD Pune (Feb 2026 batch)
+Vrushabh Rajkumar Ghodke - PGCP-ITISS, IACSD Pune (Feb 2026 batch)
