@@ -37,23 +37,20 @@ chmod +x vuln_scanner.sh
  
 Output is printed to the terminal and saved to `vuln_report_<domain>_<timestamp>.txt`.
  
-## Sample Output
+## Sample Run — scanme.nmap.org
  
-```
-[1] DNS & Reachability Check
-[PASS] Resolved example.com -> 93.184.216.34
-[PASS] Target is reachable over HTTPS
+A real scan was run against `scanme.nmap.org` — Nmap's official public test target, explicitly maintained for scanning practice (safe to run against, unlike a random live site).
  
-[3] HTTP Security Header Audit
-[FAIL] Content-Security-Policy header MISSING
-[PASS] Strict-Transport-Security header present
-...
-==================== SUMMARY ====================
-Passed checks : 14
-Warnings      : 2
-Failed checks : 3
-==================================================
-```
+![Sample scan report](report_screenshot.png)
+ 
+Full raw output: [`sample-reports/vuln_report_scanme.nmap.org_20260720_101849.txt`](sample-reports/vuln_report_scanme.nmap.org_20260720_101849.txt)
+ 
+**Key findings from this run:**
+- Port scan confirmed SSH (22) and HTTP (80) open, everything else closed — matches scanme.nmap.org's known configuration
+- All 6 HTTP security headers (HSTS, CSP, X-Frame-Options, etc.) were missing — expected, since it's a bare test server, not a hardened production site
+- No sensitive files/directories exposed
+- 13 passed, 2 warnings, 6 failed overall
+**Note:** since port 443 is closed on this host, HTTPS-based checks (cert expiry lookup) couldn't complete — a known limitation documented below.
  
 ## Design / Architecture
  
